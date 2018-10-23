@@ -16,10 +16,12 @@ def main():
     url = sys.argv[1]
     git_url = parse_git_url(url)
 
+    git_get_path = os.getenv("GIT_GET_PATH", "~")
+
     if git_url.group:
-        directory = os.path.join(expanduser("~"), git_url.host, git_url.group, git_url.org, git_url.repo)
+        directory = os.path.join(expanduser(git_get_path), git_url.host, git_url.group, git_url.org, git_url.repo)
     else:
-        directory = os.path.join(expanduser("~"), git_url.host, git_url.org, git_url.repo)
+        directory = os.path.join(expanduser(git_get_path), git_url.host, git_url.org, git_url.repo)
 
     if not os.path.exists(directory):
         os.makedirs(directory)
