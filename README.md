@@ -21,7 +21,7 @@
     git get https://try.gogs.io/d10xa/git-get
     # Cloning into '~/try.gogs.io/d10xa/git-get'...
 
-## custom git path
+## custom path
 
     export GIT_GET_PATH="$HOME/projects"
 
