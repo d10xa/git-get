@@ -26,7 +26,10 @@ def main():
     if not os.path.exists(directory):
         os.makedirs(directory)
 
-    call(["git", "clone", git_url.url, directory])
+    exit_code = call(["git", "clone", git_url.url, directory])
+
+    print(directory)
+    exit(exit_code)
 
 
 def parse_git_url(s):
